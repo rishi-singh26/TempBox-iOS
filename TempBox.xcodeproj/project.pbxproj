@@ -11,6 +11,8 @@
 		5BB3AA832ABEC49D0098E60F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA822ABEC49D0098E60F /* ContentView.swift */; };
 		5BB3AA852ABEC49E0098E60F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BB3AA842ABEC49E0098E60F /* Assets.xcassets */; };
 		5BB3AA882ABEC49E0098E60F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BB3AA872ABEC49E0098E60F /* Preview Assets.xcassets */; };
+		5BB3AA922ABEC4BC0098E60F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA8F2ABEC4BC0098E60F /* DataController.swift */; };
+		5BB3AA932ABEC4BC0098E60F /* TempBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA902ABEC4BC0098E60F /* TempBox.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		5BB3AA822ABEC49D0098E60F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5BB3AA842ABEC49E0098E60F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BB3AA872ABEC49E0098E60F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5BB3AA8F2ABEC4BC0098E60F /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		5BB3AA912ABEC4BC0098E60F /* TempBox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TempBox.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			children = (
 				5BB3AA802ABEC49D0098E60F /* TempBoxApp.swift */,
 				5BB3AA822ABEC49D0098E60F /* ContentView.swift */,
+				5BB3AA8E2ABEC4BC0098E60F /* Persistance */,
 				5BB3AA842ABEC49E0098E60F /* Assets.xcassets */,
 				5BB3AA862ABEC49E0098E60F /* Preview Content */,
 			);
@@ -65,6 +70,15 @@
 				5BB3AA872ABEC49E0098E60F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5BB3AA8E2ABEC4BC0098E60F /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				5BB3AA8F2ABEC4BC0098E60F /* DataController.swift */,
+				5BB3AA902ABEC4BC0098E60F /* TempBox.xcdatamodeld */,
+			);
+			path = Persistance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +152,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BB3AA832ABEC49D0098E60F /* ContentView.swift in Sources */,
+				5BB3AA922ABEC4BC0098E60F /* DataController.swift in Sources */,
 				5BB3AA812ABEC49D0098E60F /* TempBoxApp.swift in Sources */,
+				5BB3AA932ABEC4BC0098E60F /* TempBox.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +355,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5BB3AA902ABEC4BC0098E60F /* TempBox.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5BB3AA912ABEC4BC0098E60F /* TempBox.xcdatamodel */,
+			);
+			currentVersion = 5BB3AA912ABEC4BC0098E60F /* TempBox.xcdatamodel */;
+			path = TempBox.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5BB3AA752ABEC49D0098E60F /* Project object */;
 }
