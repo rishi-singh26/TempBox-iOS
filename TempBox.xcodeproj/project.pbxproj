@@ -13,6 +13,13 @@
 		5BB3AA882ABEC49E0098E60F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BB3AA872ABEC49E0098E60F /* Preview Assets.xcassets */; };
 		5BB3AA922ABEC4BC0098E60F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA8F2ABEC4BC0098E60F /* DataController.swift */; };
 		5BB3AA932ABEC4BC0098E60F /* TempBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA902ABEC4BC0098E60F /* TempBox.xcdatamodeld */; };
+		5BB3AA952ABEC5310098E60F /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA942ABEC5310098E60F /* AppConfig.swift */; };
+		5BB3AA982ABEC5470098E60F /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA972ABEC5470098E60F /* AccountService.swift */; };
+		5BB3AA9A2ABEC56F0098E60F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA992ABEC56F0098E60F /* ContentViewModel.swift */; };
+		5BB3AAA02ABEC7960098E60F /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA9F2ABEC7960098E60F /* AddAddressView.swift */; };
+		5BB3AAA22ABEC7A20098E60F /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AAA12ABEC7A20098E60F /* AddAddressViewModel.swift */; };
+		5BB3AAA52ABEC8AA0098E60F /* MailTMSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BB3AAA42ABEC8AA0098E60F /* MailTMSwift */; };
+		5BB3AAA82ABECB930098E60F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AAA72ABECB930098E60F /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +30,12 @@
 		5BB3AA872ABEC49E0098E60F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5BB3AA8F2ABEC4BC0098E60F /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5BB3AA912ABEC4BC0098E60F /* TempBox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TempBox.xcdatamodel; sourceTree = "<group>"; };
+		5BB3AA942ABEC5310098E60F /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		5BB3AA972ABEC5470098E60F /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		5BB3AA992ABEC56F0098E60F /* ContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		5BB3AA9F2ABEC7960098E60F /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
+		5BB3AAA12ABEC7A20098E60F /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
+		5BB3AAA72ABECB930098E60F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB3AAA52ABEC8AA0098E60F /* MailTMSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,8 +70,11 @@
 			isa = PBXGroup;
 			children = (
 				5BB3AA802ABEC49D0098E60F /* TempBoxApp.swift */,
-				5BB3AA822ABEC49D0098E60F /* ContentView.swift */,
+				5BB3AA942ABEC5310098E60F /* AppConfig.swift */,
+				5BB3AA9B2ABEC7670098E60F /* Views */,
 				5BB3AA8E2ABEC4BC0098E60F /* Persistance */,
+				5BB3AAA62ABECB840098E60F /* Extensions */,
+				5BB3AA962ABEC5470098E60F /* Services */,
 				5BB3AA842ABEC49E0098E60F /* Assets.xcassets */,
 				5BB3AA862ABEC49E0098E60F /* Preview Content */,
 			);
@@ -81,6 +98,49 @@
 			path = Persistance;
 			sourceTree = "<group>";
 		};
+		5BB3AA962ABEC5470098E60F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5BB3AA972ABEC5470098E60F /* AccountService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5BB3AA9B2ABEC7670098E60F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5BB3AA9E2ABEC7840098E60F /* AddAddressView */,
+				5BB3AA9D2ABEC7780098E60F /* ContentView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5BB3AA9D2ABEC7780098E60F /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				5BB3AA822ABEC49D0098E60F /* ContentView.swift */,
+				5BB3AA992ABEC56F0098E60F /* ContentViewModel.swift */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		5BB3AA9E2ABEC7840098E60F /* AddAddressView */ = {
+			isa = PBXGroup;
+			children = (
+				5BB3AA9F2ABEC7960098E60F /* AddAddressView.swift */,
+				5BB3AAA12ABEC7A20098E60F /* AddAddressViewModel.swift */,
+			);
+			path = AddAddressView;
+			sourceTree = "<group>";
+		};
+		5BB3AAA62ABECB840098E60F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5BB3AAA72ABECB930098E60F /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -97,6 +157,9 @@
 			dependencies = (
 			);
 			name = TempBox;
+			packageProductDependencies = (
+				5BB3AAA42ABEC8AA0098E60F /* MailTMSwift */,
+			);
 			productName = TempBox;
 			productReference = 5BB3AA7D2ABEC49D0098E60F /* TempBox.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +188,9 @@
 				Base,
 			);
 			mainGroup = 5BB3AA742ABEC49D0098E60F;
+			packageReferences = (
+				5BB3AAA32ABEC8AA0098E60F /* XCRemoteSwiftPackageReference "MailTMSwift" */,
+			);
 			productRefGroup = 5BB3AA7E2ABEC49D0098E60F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,9 +218,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BB3AA832ABEC49D0098E60F /* ContentView.swift in Sources */,
+				5BB3AAA02ABEC7960098E60F /* AddAddressView.swift in Sources */,
+				5BB3AAA82ABECB930098E60F /* StringExtensions.swift in Sources */,
+				5BB3AAA22ABEC7A20098E60F /* AddAddressViewModel.swift in Sources */,
+				5BB3AA952ABEC5310098E60F /* AppConfig.swift in Sources */,
 				5BB3AA922ABEC4BC0098E60F /* DataController.swift in Sources */,
+				5BB3AA982ABEC5470098E60F /* AccountService.swift in Sources */,
 				5BB3AA812ABEC49D0098E60F /* TempBoxApp.swift in Sources */,
 				5BB3AA932ABEC4BC0098E60F /* TempBox.xcdatamodeld in Sources */,
+				5BB3AA9A2ABEC56F0098E60F /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +427,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5BB3AAA32ABEC8AA0098E60F /* XCRemoteSwiftPackageReference "MailTMSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devwaseem/MailTMSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BB3AAA42ABEC8AA0098E60F /* MailTMSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BB3AAA32ABEC8AA0098E60F /* XCRemoteSwiftPackageReference "MailTMSwift" */;
+			productName = MailTMSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5BB3AA902ABEC4BC0098E60F /* TempBox.xcdatamodeld */ = {
