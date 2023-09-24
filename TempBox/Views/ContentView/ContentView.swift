@@ -21,6 +21,11 @@ struct ContentView: View {
                 ForEach(accounts) { account in
                     Text(account.address ?? "No Address")
                 }
+                .onDelete { indexSet in
+                    if let index = indexSet.first {
+                        controller.deleteAccount(account: accounts[index], moc: moc)
+                    }
+                }
             }
             .navigationTitle("TempBox")
             .toolbar {
