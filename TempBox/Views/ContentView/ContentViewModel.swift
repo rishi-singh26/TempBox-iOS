@@ -13,6 +13,9 @@ class ContentViewModel: ObservableObject {
     @Published var searchText = ""
     @Published var isNewAddressSheetOpen = false
     @Published var messages: [Account: MTMessage] = [Account: MTMessage]()
+    
+    @Published var isAccountInfoSheetOpen = false
+    var selectedAccForInfoSheet: Account?
         
     private let accountService = MTAccountService()
     

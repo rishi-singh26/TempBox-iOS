@@ -20,6 +20,8 @@
 		5BB3AAA22ABEC7A20098E60F /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AAA12ABEC7A20098E60F /* AddAddressViewModel.swift */; };
 		5BB3AAA52ABEC8AA0098E60F /* MailTMSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BB3AAA42ABEC8AA0098E60F /* MailTMSwift */; };
 		5BB3AAA82ABECB930098E60F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AAA72ABECB930098E60F /* StringExtensions.swift */; };
+		5BB3AACE2AC057350098E60F /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AACD2AC057350098E60F /* AccountInfoView.swift */; };
+		5BB3AAD12AC0CC030098E60F /* ByteConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AAD02AC0CC030098E60F /* ByteConverterService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		5BB3AA9F2ABEC7960098E60F /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
 		5BB3AAA12ABEC7A20098E60F /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
 		5BB3AAA72ABECB930098E60F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		5BB3AACD2AC057350098E60F /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
+		5BB3AAD02AC0CC030098E60F /* ByteConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteConverterService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				5BB3AA972ABEC5470098E60F /* AccountService.swift */,
+				5BB3AAD02AC0CC030098E60F /* ByteConverterService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 			children = (
 				5BB3AA9E2ABEC7840098E60F /* AddAddressView */,
 				5BB3AA9D2ABEC7780098E60F /* ContentView */,
+				5BB3AACD2AC057350098E60F /* AccountInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,7 +231,9 @@
 				5BB3AA922ABEC4BC0098E60F /* DataController.swift in Sources */,
 				5BB3AA982ABEC5470098E60F /* AccountService.swift in Sources */,
 				5BB3AA812ABEC49D0098E60F /* TempBoxApp.swift in Sources */,
+				5BB3AACE2AC057350098E60F /* AccountInfoView.swift in Sources */,
 				5BB3AA932ABEC4BC0098E60F /* TempBox.xcdatamodeld in Sources */,
+				5BB3AAD12AC0CC030098E60F /* ByteConverterService.swift in Sources */,
 				5BB3AA9A2ABEC56F0098E60F /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

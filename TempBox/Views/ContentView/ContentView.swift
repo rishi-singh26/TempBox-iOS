@@ -20,6 +20,15 @@ struct ContentView: View {
             List {
                 ForEach(accounts) { account in
                     Text(account.address ?? "No Address")
+                        .swipeActions(edge: .leading) {
+                            Button {
+                                controller.selectedAccForInfoSheet = account
+                                controller.isAccountInfoSheetOpen = true
+                            } label: {
+                                Label("Account Info", systemImage: "info.square")
+                            }
+                            .tint(.yellow)
+                        }
                 }
                 .onDelete { indexSet in
                     if let index = indexSet.first {
@@ -47,6 +56,9 @@ struct ContentView: View {
             .listStyle(.sidebar)
             .sheet(isPresented: $controller.isNewAddressSheetOpen) {
                 AddAddressView()
+            }
+            .sheet(isPresented: $controller.isAccountInfoSheetOpen) {
+                AccountInfoView(account: controller.selectedAccForInfoSheet!)
             }
         }
     }

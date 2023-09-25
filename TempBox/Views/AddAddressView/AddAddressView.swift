@@ -51,7 +51,7 @@ struct AddAddressView: View {
                         .font(.title2)
                         .foregroundColor(.yellow)
                         .background(RoundedRectangle(cornerRadius: 5).fill(.white))
-                    Text("The password once set cannot be reset or changed.")
+                    Text("The password once set can not be reset or changed.")
                 }
                 .listRowBackground(Color.yellow.opacity(0.2))
             }
@@ -91,7 +91,7 @@ struct AddAddressView: View {
                     Button {
                         controller.createAccount(moc: moc, dismiss: dismiss)
                     } label: {
-                        Text("Create")
+                        Text("Done")
                             .font(.headline)
                     }
 
