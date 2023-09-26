@@ -6,15 +6,21 @@
 //
 
 import SwiftUI
+import MailTMSwift
 
 struct AddAddressView: View {
-    @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @StateObject var controller = AddAddressViewModel()
+    @EnvironmentObject private var dataController: DataController
+    private let accountService = MTAccountService()
 
     var body: some View {
         NavigationView {
             Form {
+                Section(footer: Text("Account name appears on the accounts list screen.")) {
+                    TextField("Account name (Optional)", text: $controller.accountName)
+                }
+                
                 Section {
                     if controller.isCreatingNewAccount {
                         Picker(selection: $controller.selectedDomain) {
@@ -61,7 +67,6 @@ struct AddAddressView: View {
                     Button("Cancel") {
                         dismiss()
                     }
-
                 }
                 
 //                ToolbarItem(placement: .principal) {
@@ -89,7 +94,7 @@ struct AddAddressView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        controller.createAccount(moc: moc, dismiss: dismiss)
+                        createAccount()
                     } label: {
                         Text("Done")
                             .font(.headline)
@@ -100,6 +105,33 @@ struct AddAddressView: View {
             .alert(isPresented: $controller.showErrorAlert) {
                 Alert(title: Text("Alert!"), message: Text(controller.errorMessage))
             }
+        }
+    }
+    
+    func createAccount() {
+        let auth = MTAuth(address: controller.getEmail(), password: controller.password)
+        accountService.createAccount(using: auth) { [self] (accountResult: Result<MTAccount, MTError>) in
+          switch accountResult {
+            case .success(let account):
+              login(account: account)
+            case .failure(let error):
+              controller.errorMessage = error.localizedDescription
+              controller.showErrorAlert = true
+          }
+        }
+    }
+    
+    func login(account: MTAccount) {
+        let auth = MTAuth(address: controller.getEmail(), password: controller.password)
+        accountService.login(using: auth) { [self] (result: Result<String, MTError>) in
+          switch result {
+            case .success(let token):
+              dataController.addAccount(account: account, token: token, password: controller.password, accountName: controller.accountName)
+              dismiss()
+            case .failure(let error):
+              controller.errorMessage = error.localizedDescription
+              controller.showErrorAlert = true
+          }
         }
     }
 }

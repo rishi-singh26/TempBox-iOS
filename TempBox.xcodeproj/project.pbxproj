@@ -18,10 +18,19 @@
 		5BB3AA9A2ABEC56F0098E60F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA992ABEC56F0098E60F /* ContentViewModel.swift */; };
 		5BB3AAA02ABEC7960098E60F /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AA9F2ABEC7960098E60F /* AddAddressView.swift */; };
 		5BB3AAA22ABEC7A20098E60F /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AAA12ABEC7A20098E60F /* AddAddressViewModel.swift */; };
-		5BB3AAA52ABEC8AA0098E60F /* MailTMSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BB3AAA42ABEC8AA0098E60F /* MailTMSwift */; };
 		5BB3AAA82ABECB930098E60F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AAA72ABECB930098E60F /* StringExtensions.swift */; };
 		5BB3AACE2AC057350098E60F /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AACD2AC057350098E60F /* AccountInfoView.swift */; };
 		5BB3AAD12AC0CC030098E60F /* ByteConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AAD02AC0CC030098E60F /* ByteConverterService.swift */; };
+		5BC567C22AC1F3730037C677 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567C12AC1F3730037C677 /* MessagesView.swift */; };
+		5BC567C42AC1F3810037C677 /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567C32AC1F3810037C677 /* MessagesViewModel.swift */; };
+		5BC567C72AC308050037C677 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567C62AC308050037C677 /* Shimmer.swift */; };
+		5BC567CA2AC309D10037C677 /* MailTMSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BC567C92AC309D10037C677 /* MailTMSwift */; };
+		5BC567CD2AC30CD30037C677 /* LoadingMessagesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567CC2AC30CD30037C677 /* LoadingMessagesListView.swift */; };
+		5BC567CF2AC3168B0037C677 /* MessageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567CE2AC3168B0037C677 /* MessageItemView.swift */; };
+		5BC567D12AC31AEE0037C677 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567D02AC31AEE0037C677 /* DateExtensions.swift */; };
+		5BC567D82AC33C530037C677 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567D62AC33C530037C677 /* Message.swift */; };
+		5BC567D92AC33C530037C677 /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567D72AC33C530037C677 /* MessageStore.swift */; };
+		5BC567DB2AC3603A0037C677 /* AccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567DA2AC3603A0037C677 /* AccountItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +49,15 @@
 		5BB3AAA72ABECB930098E60F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		5BB3AACD2AC057350098E60F /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		5BB3AAD02AC0CC030098E60F /* ByteConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteConverterService.swift; sourceTree = "<group>"; };
+		5BC567C12AC1F3730037C677 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		5BC567C32AC1F3810037C677 /* MessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
+		5BC567C62AC308050037C677 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
+		5BC567CC2AC30CD30037C677 /* LoadingMessagesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingMessagesListView.swift; sourceTree = "<group>"; };
+		5BC567CE2AC3168B0037C677 /* MessageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItemView.swift; sourceTree = "<group>"; };
+		5BC567D02AC31AEE0037C677 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		5BC567D62AC33C530037C677 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		5BC567D72AC33C530037C677 /* MessageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageStore.swift; sourceTree = "<group>"; };
+		5BC567DA2AC3603A0037C677 /* AccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BB3AAA52ABEC8AA0098E60F /* MailTMSwift in Frameworks */,
+				5BC567CA2AC309D10037C677 /* MailTMSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +96,9 @@
 				5BB3AA9B2ABEC7670098E60F /* Views */,
 				5BB3AA8E2ABEC4BC0098E60F /* Persistance */,
 				5BB3AAA62ABECB840098E60F /* Extensions */,
+				5BC567D52AC33C0C0037C677 /* Models */,
 				5BB3AA962ABEC5470098E60F /* Services */,
+				5BC567C52AC307F20037C677 /* Shared */,
 				5BB3AA842ABEC49E0098E60F /* Assets.xcassets */,
 				5BB3AA862ABEC49E0098E60F /* Preview Content */,
 			);
@@ -114,8 +134,9 @@
 		5BB3AA9B2ABEC7670098E60F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5BB3AA9E2ABEC7840098E60F /* AddAddressView */,
 				5BB3AA9D2ABEC7780098E60F /* ContentView */,
+				5BB3AA9E2ABEC7840098E60F /* AddAddressView */,
+				5BC567C02AC1F34A0037C677 /* MessagesView */,
 				5BB3AACD2AC057350098E60F /* AccountInfoView.swift */,
 			);
 			path = Views;
@@ -126,6 +147,7 @@
 			children = (
 				5BB3AA822ABEC49D0098E60F /* ContentView.swift */,
 				5BB3AA992ABEC56F0098E60F /* ContentViewModel.swift */,
+				5BC567DA2AC3603A0037C677 /* AccountItemView.swift */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -143,8 +165,53 @@
 			isa = PBXGroup;
 			children = (
 				5BB3AAA72ABECB930098E60F /* StringExtensions.swift */,
+				5BC567D02AC31AEE0037C677 /* DateExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5BC567C02AC1F34A0037C677 /* MessagesView */ = {
+			isa = PBXGroup;
+			children = (
+				5BC567CB2AC30CBE0037C677 /* SubViews */,
+				5BC567C12AC1F3730037C677 /* MessagesView.swift */,
+				5BC567C32AC1F3810037C677 /* MessagesViewModel.swift */,
+			);
+			path = MessagesView;
+			sourceTree = "<group>";
+		};
+		5BC567C52AC307F20037C677 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				5BC567D22AC321760037C677 /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		5BC567CB2AC30CBE0037C677 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				5BC567CC2AC30CD30037C677 /* LoadingMessagesListView.swift */,
+				5BC567CE2AC3168B0037C677 /* MessageItemView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		5BC567D22AC321760037C677 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5BC567C62AC308050037C677 /* Shimmer.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5BC567D52AC33C0C0037C677 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5BC567D62AC33C530037C677 /* Message.swift */,
+				5BC567D72AC33C530037C677 /* MessageStore.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +231,7 @@
 			);
 			name = TempBox;
 			packageProductDependencies = (
-				5BB3AAA42ABEC8AA0098E60F /* MailTMSwift */,
+				5BC567C92AC309D10037C677 /* MailTMSwift */,
 			);
 			productName = TempBox;
 			productReference = 5BB3AA7D2ABEC49D0098E60F /* TempBox.app */;
@@ -178,7 +245,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					5BB3AA7C2ABEC49D0098E60F = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -195,7 +262,7 @@
 			);
 			mainGroup = 5BB3AA742ABEC49D0098E60F;
 			packageReferences = (
-				5BB3AAA32ABEC8AA0098E60F /* XCRemoteSwiftPackageReference "MailTMSwift" */,
+				5BC567C82AC309D10037C677 /* XCRemoteSwiftPackageReference "MailTMSwift" */,
 			);
 			productRefGroup = 5BB3AA7E2ABEC49D0098E60F /* Products */;
 			projectDirPath = "";
@@ -225,15 +292,24 @@
 			files = (
 				5BB3AA832ABEC49D0098E60F /* ContentView.swift in Sources */,
 				5BB3AAA02ABEC7960098E60F /* AddAddressView.swift in Sources */,
+				5BC567C42AC1F3810037C677 /* MessagesViewModel.swift in Sources */,
 				5BB3AAA82ABECB930098E60F /* StringExtensions.swift in Sources */,
+				5BC567DB2AC3603A0037C677 /* AccountItemView.swift in Sources */,
 				5BB3AAA22ABEC7A20098E60F /* AddAddressViewModel.swift in Sources */,
+				5BC567D12AC31AEE0037C677 /* DateExtensions.swift in Sources */,
+				5BC567CD2AC30CD30037C677 /* LoadingMessagesListView.swift in Sources */,
+				5BC567D82AC33C530037C677 /* Message.swift in Sources */,
 				5BB3AA952ABEC5310098E60F /* AppConfig.swift in Sources */,
 				5BB3AA922ABEC4BC0098E60F /* DataController.swift in Sources */,
 				5BB3AA982ABEC5470098E60F /* AccountService.swift in Sources */,
+				5BC567D92AC33C530037C677 /* MessageStore.swift in Sources */,
+				5BC567CF2AC3168B0037C677 /* MessageItemView.swift in Sources */,
 				5BB3AA812ABEC49D0098E60F /* TempBoxApp.swift in Sources */,
 				5BB3AACE2AC057350098E60F /* AccountInfoView.swift in Sources */,
 				5BB3AA932ABEC4BC0098E60F /* TempBox.xcdatamodeld in Sources */,
 				5BB3AAD12AC0CC030098E60F /* ByteConverterService.swift in Sources */,
+				5BC567C22AC1F3730037C677 /* MessagesView.swift in Sources */,
+				5BC567C72AC308050037C677 /* Shimmer.swift in Sources */,
 				5BB3AA9A2ABEC56F0098E60F /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -277,6 +354,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -305,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -337,6 +416,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -437,7 +517,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5BB3AAA32ABEC8AA0098E60F /* XCRemoteSwiftPackageReference "MailTMSwift" */ = {
+		5BC567C82AC309D10037C677 /* XCRemoteSwiftPackageReference "MailTMSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devwaseem/MailTMSwift.git";
 			requirement = {
@@ -448,9 +528,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5BB3AAA42ABEC8AA0098E60F /* MailTMSwift */ = {
+		5BC567C92AC309D10037C677 /* MailTMSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5BB3AAA32ABEC8AA0098E60F /* XCRemoteSwiftPackageReference "MailTMSwift" */;
+			package = 5BC567C82AC309D10037C677 /* XCRemoteSwiftPackageReference "MailTMSwift" */;
 			productName = MailTMSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

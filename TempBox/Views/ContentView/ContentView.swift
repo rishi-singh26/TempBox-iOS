@@ -6,34 +6,25 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest<Account>(sortDescriptors: [
-        SortDescriptor(\.createdAt)
-    ]) var accounts: FetchedResults<Account>
-    
+    @EnvironmentObject private var dataController: DataController
     @StateObject var controller = ContentViewModel()
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(accounts) { account in
-                    Text(account.address ?? "No Address")
-                        .swipeActions(edge: .leading) {
-                            Button {
-                                controller.selectedAccForInfoSheet = account
-                                controller.isAccountInfoSheetOpen = true
-                            } label: {
-                                Label("Account Info", systemImage: "info.square")
-                            }
-                            .tint(.yellow)
+                Section("Active") {
+                    ForEach(dataController.accounts) { account in
+                        NavigationLink {
+                            MessagesView(account: account)
+                        } label: {
+                            AccountItemView(account: account, controller: controller)
+                                .environmentObject(controller)
                         }
-                }
-                .onDelete { indexSet in
-                    if let index = indexSet.first {
-                        controller.deleteAccount(account: accounts[index], moc: moc)
                     }
+                    .onDelete(perform: dataController.deleteAccount)
                 }
             }
             .navigationTitle("TempBox")
@@ -48,7 +39,7 @@ struct ContentView: View {
                             .fontWeight(.bold)
                         }
                         Spacer()
-                        Text("Accounts: \(accounts.count)")
+                        Text("\(dataController.accounts.count) \(dataController.accounts.count < 2 ? "Account" : "Accounts")")
                     }
                 }
             }
@@ -60,12 +51,15 @@ struct ContentView: View {
             .sheet(isPresented: $controller.isAccountInfoSheetOpen) {
                 AccountInfoView(account: controller.selectedAccForInfoSheet!)
             }
+            .refreshable {
+                dataController.fetchAccounts()
+            }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

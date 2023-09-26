@@ -17,6 +17,7 @@ class AddAddressViewModel: ObservableObject {
     let domainService = MTDomainService()
     
     // MARK: - Account variables
+    @Published var accountName: String = ""
     @Published var address: String = ""
     @Published var password: String = ""
     @Published var shouldUseRandomPassword: Bool = false {
@@ -79,44 +80,5 @@ class AddAddressViewModel: ObservableObject {
     
     func getEmail() -> String {
         return isCreatingNewAccount ? "\(self.address)@\(self.selectedDomain.domain)" : self.address
-    }
-    
-    func createAccount(moc: NSManagedObjectContext, dismiss: DismissAction) {
-        let auth = MTAuth(address: getEmail(), password: password)
-        accountService.createAccount(using: auth) { [self] (accountResult: Result<MTAccount, MTError>) in
-          switch accountResult {
-            case .success(let account):
-              let localAccount = Account(context: moc)
-              localAccount.id = account.id
-              localAccount.address = account.address
-              localAccount.createdAt = account.createdAt
-              localAccount.isArchived = false
-              localAccount.isDisabled = account.isDisabled
-              localAccount.password = self.password
-              localAccount.quotaLimit = Int32(account.quotaLimit)
-              localAccount.quotaUsed = Int32(account.quotaUsed)
-              localAccount.updatedAt = account.updatedAt
-              
-              login(moc: moc, account: localAccount, dismiss: dismiss)
-            case .failure(let error):
-              errorMessage = error.localizedDescription
-              showErrorAlert = true
-          }
-        }
-    }
-    
-    func login(moc: NSManagedObjectContext, account: Account, dismiss: DismissAction) {
-        let auth = MTAuth(address: getEmail(), password: password)
-        accountService.login(using: auth) { [self] (result: Result<String, MTError>) in
-          switch result {
-            case .success(let token):
-              account.token = token
-              try? moc.save()
-              dismiss()
-            case .failure(let error):
-              errorMessage = error.localizedDescription
-              showErrorAlert = true
-          }
-        }
     }
 }

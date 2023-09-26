@@ -69,7 +69,7 @@ struct AccountInfoView: View {
                     }
                 }
             }
-            .navigationTitle("Account Info")
+            .navigationTitle(account.accountName ?? "Account Info")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
