@@ -15,6 +15,10 @@ struct AddAddressView: View {
     var body: some View {
         NavigationView {
             Form {
+                Section(footer: Text("Account name appears on the accounts list screen.")) {
+                    TextField("Account name (Optional)", text: $controller.accountName)
+                }
+                
                 Section {
                     if controller.isCreatingNewAccount {
                         Picker(selection: $controller.selectedDomain) {

@@ -17,6 +17,7 @@ class AddAddressViewModel: ObservableObject {
     let domainService = MTDomainService()
     
     // MARK: - Account variables
+    @Published var accountName: String = ""
     @Published var address: String = ""
     @Published var password: String = ""
     @Published var shouldUseRandomPassword: Bool = false {
@@ -88,6 +89,7 @@ class AddAddressViewModel: ObservableObject {
             case .success(let account):
               let localAccount = Account(context: moc)
               localAccount.id = account.id
+              localAccount.accountName = accountName
               localAccount.address = account.address
               localAccount.createdAt = account.createdAt
               localAccount.isArchived = false

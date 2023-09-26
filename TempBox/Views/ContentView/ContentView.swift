@@ -18,21 +18,27 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(accounts) { account in
-                    Text(account.address ?? "No Address")
-                        .swipeActions(edge: .leading) {
-                            Button {
-                                controller.selectedAccForInfoSheet = account
-                                controller.isAccountInfoSheetOpen = true
-                            } label: {
-                                Label("Account Info", systemImage: "info.square")
-                            }
-                            .tint(.yellow)
+                Section("Active") {
+                    ForEach(accounts) { account in
+                        NavigationLink {
+                            Text(account.address ?? "No address")
+                        } label: {
+                            Text(account.accountName ?? account.address ?? "No address")
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        controller.selectedAccForInfoSheet = account
+                                        controller.isAccountInfoSheetOpen = true
+                                    } label: {
+                                        Label("Account Info", systemImage: "info.square")
+                                    }
+                                    .tint(.yellow)
+                                }
                         }
-                }
-                .onDelete { indexSet in
-                    if let index = indexSet.first {
-                        controller.deleteAccount(account: accounts[index], moc: moc)
+                    }
+                    .onDelete { indexSet in
+                        if let index = indexSet.first {
+                            controller.deleteAccount(account: accounts[index], moc: moc)
+                        }
                     }
                 }
             }

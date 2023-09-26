@@ -22,6 +22,8 @@
 		5BB3AAA82ABECB930098E60F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AAA72ABECB930098E60F /* StringExtensions.swift */; };
 		5BB3AACE2AC057350098E60F /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AACD2AC057350098E60F /* AccountInfoView.swift */; };
 		5BB3AAD12AC0CC030098E60F /* ByteConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3AAD02AC0CC030098E60F /* ByteConverterService.swift */; };
+		5BC567C22AC1F3730037C677 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567C12AC1F3730037C677 /* MessagesView.swift */; };
+		5BC567C42AC1F3810037C677 /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC567C32AC1F3810037C677 /* MessagesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		5BB3AAA72ABECB930098E60F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		5BB3AACD2AC057350098E60F /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		5BB3AAD02AC0CC030098E60F /* ByteConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteConverterService.swift; sourceTree = "<group>"; };
+		5BC567C12AC1F3730037C677 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		5BC567C32AC1F3810037C677 /* MessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +118,9 @@
 		5BB3AA9B2ABEC7670098E60F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5BB3AA9E2ABEC7840098E60F /* AddAddressView */,
 				5BB3AA9D2ABEC7780098E60F /* ContentView */,
+				5BB3AA9E2ABEC7840098E60F /* AddAddressView */,
+				5BC567C02AC1F34A0037C677 /* MessagesView */,
 				5BB3AACD2AC057350098E60F /* AccountInfoView.swift */,
 			);
 			path = Views;
@@ -145,6 +150,15 @@
 				5BB3AAA72ABECB930098E60F /* StringExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5BC567C02AC1F34A0037C677 /* MessagesView */ = {
+			isa = PBXGroup;
+			children = (
+				5BC567C12AC1F3730037C677 /* MessagesView.swift */,
+				5BC567C32AC1F3810037C677 /* MessagesViewModel.swift */,
+			);
+			path = MessagesView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +239,7 @@
 			files = (
 				5BB3AA832ABEC49D0098E60F /* ContentView.swift in Sources */,
 				5BB3AAA02ABEC7960098E60F /* AddAddressView.swift in Sources */,
+				5BC567C42AC1F3810037C677 /* MessagesViewModel.swift in Sources */,
 				5BB3AAA82ABECB930098E60F /* StringExtensions.swift in Sources */,
 				5BB3AAA22ABEC7A20098E60F /* AddAddressViewModel.swift in Sources */,
 				5BB3AA952ABEC5310098E60F /* AppConfig.swift in Sources */,
@@ -234,6 +249,7 @@
 				5BB3AACE2AC057350098E60F /* AccountInfoView.swift in Sources */,
 				5BB3AA932ABEC4BC0098E60F /* TempBox.xcdatamodeld in Sources */,
 				5BB3AAD12AC0CC030098E60F /* ByteConverterService.swift in Sources */,
+				5BC567C22AC1F3730037C677 /* MessagesView.swift in Sources */,
 				5BB3AA9A2ABEC56F0098E60F /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
