@@ -11,12 +11,28 @@ import CoreData
 struct ContentView: View {
     @EnvironmentObject private var dataController: DataController
     @StateObject var controller = ContentViewModel()
+    
+    var filteredAccounts: [Account] {
+        if controller.searchText.isEmpty {
+            return dataController.accounts
+        } else {
+            return dataController.accounts.filter { acc in
+                guard let accountName = acc.accountName else { return false }
+                if accountName.lowercased().contains(controller.searchText.lowercased()) {
+                    return true
+                } else {
+                    guard let accountAddress = acc.address else { return false }
+                    return accountAddress.lowercased().contains(controller.searchText.lowercased())
+                }
+            }
+        }
+    }
 
     var body: some View {
         NavigationView {
             List {
-                Section("Active") {
-                    ForEach(dataController.accounts) { account in
+                Section {
+                    ForEach(filteredAccounts) { account in
                         NavigationLink {
                             MessagesView(account: account)
                         } label: {
@@ -25,6 +41,12 @@ struct ContentView: View {
                         }
                     }
                     .onDelete(perform: dataController.deleteAccount)
+                } header: {
+                    Text("Active")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+                        .textCase(nil)
                 }
             }
             .navigationTitle("TempBox")
@@ -39,7 +61,8 @@ struct ContentView: View {
                             .fontWeight(.bold)
                         }
                         Spacer()
-                        Text("\(dataController.accounts.count) \(dataController.accounts.count < 2 ? "Account" : "Accounts")")
+                        Text("Powered by [mail.tm](https://www.mail.tm)")
+                            .font(.footnote)
                     }
                 }
             }
@@ -54,6 +77,15 @@ struct ContentView: View {
             .refreshable {
                 dataController.fetchAccounts()
             }
+//            .toolbar {
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    Button {
+//                        dataController.fetchAccounts()
+//                    } label: {
+//                        Label("Refresh", systemImage: "arrow.clockwise.circle")
+//                    }
+//                }
+//            }
         }
     }
 }

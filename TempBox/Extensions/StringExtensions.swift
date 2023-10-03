@@ -21,4 +21,13 @@ extension String {
         }
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
+    
+    func getInitials() -> String {
+        let formatter = PersonNameComponentsFormatter()
+        if let components = formatter.personNameComponents(from: self) {
+             formatter.style = .abbreviated
+             return formatter.string(from: components)
+        }
+        return self
+    }
 }

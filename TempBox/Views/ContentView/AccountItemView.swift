@@ -53,18 +53,46 @@ struct AccountItemView: View {
         }
             .swipeActions(edge: .leading) {
                 Button {
+                    dataController.fetchMessages(for: account)
+                } label: {
+                    Label("Refresh", systemImage: "arrow.clockwise.circle")
+                }
+                .tint(.blue)
+                Button {
                     controller.selectedAccForInfoSheet = account
                     controller.isAccountInfoSheetOpen = true
                 } label: {
                     Label("Account Info", systemImage: "info.square")
                 }
-                .tint(.blue)
+                .tint(.yellow)
                 Button {
                 } label: {
                     Label("Archive", systemImage: "archivebox")
                 }
                 .tint(.indigo)
             }
+            .contextMenu(menuItems: {
+                Button {
+                    dataController.fetchMessages(for: account)
+                } label: {
+                    Label("Refresh", systemImage: "arrow.clockwise.circle")
+                }
+                Button {
+                    controller.selectedAccForInfoSheet = account
+                    controller.isAccountInfoSheetOpen = true
+                } label: {
+                    Label("Account Info", systemImage: "info.square")
+                }
+                Button {
+                } label: {
+                    Label("Archive", systemImage: "archivebox")
+                }
+                Button(role: .destructive) {
+                    dataController.deleteAccount(account: account)
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+            })
     }
 }
 

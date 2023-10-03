@@ -31,15 +31,17 @@ struct MessagesView: View {
                     Spacer()
                 }
             } else {
-                List {
+                List(selection: $dataController.selectedMessage) {
                     ForEach(messages) { message in
-                        MessageItemView(message: message)
+                        NavigationLink {
+                            MessageDetailView(message: message, account: account)
+                        } label: {
+                            MessageItemView(message: message, account: account)
+                        }
                     }
-                    //                        .onDelete { indexSet in
-                    //                            if let index = indexSet.first {
-                    //                                controller.deleteAccount(account: [index], moc: moc)
-                    //                            }
-                    //                        }
+                    .onDelete { indexSet in
+                        dataController.deleteMessage(indexSet: indexSet, account: account)
+                    }
                 }
                 .listStyle(.plain)
                 .searchable(text: $viewModel.searchText)
