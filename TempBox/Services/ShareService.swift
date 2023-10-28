@@ -31,4 +31,23 @@ class ShareService {
         
         return pdfDoc
     }
+    
+    func createPDF(html: String) -> Data? {
+        let format = UIGraphicsPDFRendererFormat()
+        let bounds = CGRect(x: 0, y: 0, width: 500, height: 600)
+        let renderer = UIGraphicsPDFRenderer(bounds: bounds, format: format)
+
+        let data = renderer.pdfData { context in
+            context.beginPage()
+            let attributes = [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
+                NSAttributedString.Key.foregroundColor: UIColor.black
+            ]
+            let string = NSAttributedString(string: html, attributes: attributes)
+            string.draw(in: bounds)
+        }
+        
+        return data
+    }
+
 }

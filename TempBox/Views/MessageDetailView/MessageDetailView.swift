@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PDFKit
 
 struct MessageDetailView: View {
     @EnvironmentObject private var dataController: DataController
@@ -33,7 +34,14 @@ struct MessageDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup {
-                Button {} label: {
+                Button {
+                    if let selectedMessage = dataController.selectedMessage, let html = selectedMessage.data.html?.first {
+                        guard let data = ShareService().createPDF(html: html) else { return }
+                        guard let pdf = PDFDocument(data: data) else { return }
+                        print(pdf)
+                        let result = ShareLink(item: pdf, preview: SharePreview("PDF"))
+                    }
+                } label: {
                     Label("Share", systemImage: "square.and.arrow.up")
                 }
                 Button(role: .destructive) {
