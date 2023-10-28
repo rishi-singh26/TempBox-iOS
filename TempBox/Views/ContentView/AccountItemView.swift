@@ -53,18 +53,28 @@ struct AccountItemView: View {
         }
             .swipeActions(edge: .leading) {
                 Button {
-                    dataController.fetchMessages(for: account)
-                } label: {
-                    Label("Refresh", systemImage: "arrow.clockwise.circle")
-                }
-                .tint(.blue)
-                Button {
                     controller.selectedAccForInfoSheet = account
                     controller.isAccountInfoSheetOpen = true
                 } label: {
                     Label("Account Info", systemImage: "info.square")
                 }
                 .tint(.yellow)
+                Button {
+                    dataController.fetchMessages(for: account)
+                } label: {
+                    Label("Refresh", systemImage: "arrow.clockwise.circle")
+                }
+                .tint(.blue)
+            }
+            .swipeActions(edge: .trailing) {
+                Button(role: .destructive) {
+                    controller.showDeleteAccountAlert = true
+                    controller.selectedAccForDeletion = account
+//                    dataController.deleteAccount(account: account)
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+                .tint(.red)
                 Button {
                 } label: {
                     Label("Archive", systemImage: "archivebox")
@@ -88,7 +98,9 @@ struct AccountItemView: View {
                     Label("Archive", systemImage: "archivebox")
                 }
                 Button(role: .destructive) {
-                    dataController.deleteAccount(account: account)
+                    controller.showDeleteAccountAlert = true
+                    controller.selectedAccForDeletion = account
+//                    dataController.deleteAccount(account: account)
                 } label: {
                     Label("Delete", systemImage: "trash")
                 }

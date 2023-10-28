@@ -109,11 +109,19 @@ class DataController: ObservableObject {
         accountService.deleteAccount(id: id, token: token) { (result: Result<MTEmptyResult, MTError>) in
             if case let .failure(error) = result {
                 print("Error Occurred while deleting account from mail.tm server: \(error)")
+                if let _ = error.errorDescription?.contains("Invalid JWT Token") {
+                    // deleting account from coredata because it has been deactivated from mail.tm server
+                    self.deleteAccountFromCoreData(account: account)
+                }
                 return
             }
-            self.container.viewContext.delete(account)
-            self.saveContext()
+            self.deleteAccountFromCoreData(account: account)
         }
+    }
+    
+    private func deleteAccountFromCoreData(account: Account) {
+        self.container.viewContext.delete(account)
+        self.saveContext()
     }
     
     func deleteMessage(message: Message, account: Account) {

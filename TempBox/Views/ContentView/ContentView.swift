@@ -40,7 +40,9 @@ struct ContentView: View {
                                 .environmentObject(controller)
                         }
                     }
-                    .onDelete(perform: dataController.deleteAccount)
+//                    .onDelete {_ in 
+//                        self.controller.showDeleteAccountAlert = true
+//                    }
                 } header: {
                     Text("Active")
                         .font(.title3)
@@ -77,6 +79,19 @@ struct ContentView: View {
             .refreshable {
                 dataController.fetchAccounts()
             }
+            .alert("Alert!", isPresented: $controller.showDeleteAccountAlert) {
+                Button("Cancel", role: .cancel) {
+                    
+                }
+                Button("Delete", role: .destructive) {
+                    guard let accountForDeletion = controller.selectedAccForDeletion else { return }
+                    dataController.deleteAccount(account: accountForDeletion)
+                    controller.selectedAccForDeletion = nil
+                }
+            } message: {
+                Text("Are you sure you want to delete this account?")
+            }
+
 //            .toolbar {
 //                ToolbarItem(placement: .topBarTrailing) {
 //                    Button {
