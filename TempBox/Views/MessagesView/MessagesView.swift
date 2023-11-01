@@ -9,13 +9,13 @@ import SwiftUI
 
 struct MessagesView: View {
     @EnvironmentObject private var dataController: DataController
-    @StateObject private var viewModel: MessagesViewModel
+    @StateObject private var controller: MessagesViewModel
     
     let account: Account
     
     init(account: Account) {
         self.account = account
-        _viewModel = StateObject(wrappedValue: MessagesViewModel(account: account))
+        _controller = StateObject(wrappedValue: MessagesViewModel(account: account))
     }
     
     var messages: [Message] {
@@ -23,7 +23,7 @@ struct MessagesView: View {
     }
     
     var body: some View {
-        Group {
+        VStack {
             if messages.isEmpty {
                 VStack {
                     Spacer()
@@ -36,7 +36,11 @@ struct MessagesView: View {
                         NavigationLink {
                             MessageDetailView(message: message, account: account)
                         } label: {
-                            MessageItemView(message: message, account: account)
+                            MessageItemView(
+                                controller: controller, message: message,
+                                account: account
+                            )
+                            .environmentObject(controller)
                         }
                     }
                     .onDelete { indexSet in
@@ -44,7 +48,19 @@ struct MessagesView: View {
                     }
                 }
                 .listStyle(.plain)
-                .searchable(text: $viewModel.searchText)
+                .searchable(text: $controller.searchText)
+                .alert("Alert!", isPresented: $controller.showDeleteMessageAlert) {
+                    Button("Cancel", role: .cancel) {
+                        
+                    }
+                    Button("Delete", role: .destructive) {
+                        guard let messForDeletion = controller.selectedMessForDeletion else { return }
+                        dataController.deleteMessage(message: messForDeletion, account: account)
+                        controller.selectedMessForDeletion = nil
+                    }
+                } message: {
+                    Text("Are you sure you want to delete this account?")
+                }
             }
         }
         .navigationTitle(account.accountName ?? account.address ?? "Mailbox")

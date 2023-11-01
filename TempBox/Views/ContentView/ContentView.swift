@@ -31,7 +31,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
+//                Section(header: Text("Active")) {
                     ForEach(filteredAccounts) { account in
                         NavigationLink {
                             MessagesView(account: account)
@@ -40,16 +40,14 @@ struct ContentView: View {
                                 .environmentObject(controller)
                         }
                     }
-//                    .onDelete {_ in 
-//                        self.controller.showDeleteAccountAlert = true
-//                    }
-                } header: {
-                    Text("Active")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(.primary)
-                        .textCase(nil)
-                }
+//                }
+//            header: {
+//                    Text("Active")
+//                        .font(.title3)
+//                        .fontWeight(.bold)
+//                        .foregroundColor(.primary)
+//                        .textCase(nil)
+//                }
             }
             .navigationTitle("TempBox")
             .toolbar {

@@ -17,6 +17,9 @@ class MessagesViewModel: ObservableObject {
     
     @Published var searchText = ""
     
+    @Published var showDeleteMessageAlert = false
+    @Published var selectedMessForDeletion: Message?
+    
     let messageService = MTMessageService()
     
     init(account: Account) {

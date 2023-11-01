@@ -14,7 +14,7 @@ class ContentViewModel: ObservableObject {
     @Published var isNewAddressSheetOpen = false
     
     @Published var showDeleteAccountAlert = false
-    var selectedAccForDeletion: Account?
+    @Published var selectedAccForDeletion: Account?
         
     @Published var showingErrorAlert = false
     @Published var errorAlertMessage = ""

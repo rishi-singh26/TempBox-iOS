@@ -10,6 +10,8 @@ import SwiftUI
 
 struct MessageItemView: View {
     @EnvironmentObject private var dataController: DataController
+    @ObservedObject var controller: MessagesViewModel
+    
     let message: Message
     let account: Account
     
@@ -19,11 +21,10 @@ struct MessageItemView: View {
     
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
-            if !message.data.seen {
-                Circle()
-                    .fill(.blue)
-                    .frame(width: 12)
-            }
+            Circle()
+                .fill(.blue.opacity(message.data.seen ? 0 : 1))
+                .frame(width: 12)
+                .padding(0)
             VStack(alignment: .leading) {
                 HStack {
                     Text(messageHeader)
@@ -49,6 +50,15 @@ struct MessageItemView: View {
             }
             .tint(.blue)
         }
+        .swipeActions(edge: .trailing) {
+            Button {
+                controller.showDeleteMessageAlert = true
+                controller.selectedMessForDeletion = message
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+            .tint(.red)
+        }
         .contextMenu {
             Button {
                 dataController.markMessageAsRead(messageData: message, account: account)
@@ -57,7 +67,8 @@ struct MessageItemView: View {
             }
             Divider()
             Button(role: .destructive) {
-                dataController.deleteMessage(message: message, account: account)
+                controller.showDeleteMessageAlert = true
+                controller.selectedMessForDeletion = message
             } label: {
                 Label("Delete message", systemImage: "trash")
             }
